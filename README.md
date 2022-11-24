@@ -1,1 +1,1 @@
-# java-pipelines
+# java-azure-pipelines
