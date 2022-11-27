@@ -1,0 +1,6 @@
+steps:
+- bash: mvn clean install
+  displayName: 'Build'
+
+- bash: mvn clean verify
+  displayName: 'Run tests'
