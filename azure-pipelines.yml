@@ -12,7 +12,7 @@ pool:
 steps:
 - script: |
     echo Hello, world!
-    export TEST="hello world"
+    echo "##vso[task.setvariable variable=TEST]'hello'"
   displayName: 'Run a one-line script'
 
 - script: |
