@@ -18,7 +18,7 @@ steps:
 - checkout: azure-test
   path: foo/test
 
-- script: ls -la
+- script: cd $(Pipeline.Workspace)/foo && ls -la
 
 # - script: |
 #     echo Hello, world!
