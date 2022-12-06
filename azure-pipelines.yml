@@ -18,3 +18,7 @@ steps:
 - script: |
     echo $TEST
   displayName: 'Run a multi-line script'
+
+- script: |
+    ./pipelines/scripts/environment-setup.sh     
+  displayName: 'Run a multi-line script'
