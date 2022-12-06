@@ -20,5 +20,5 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    $(System.DefaultWorkingDirectory)/s/pipelines/resources/setup.sh     
+    $(System.DefaultWorkingDirectory)/resources/setup.sh     
   displayName: 'Run a multi-line script'
