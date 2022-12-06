@@ -20,5 +20,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
+    chmod +x $(System.DefaultWorkingDirectory)/resources/setup.sh
     $(System.DefaultWorkingDirectory)/resources/setup.sh     
   displayName: 'Run a multi-line script'
