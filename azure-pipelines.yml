@@ -13,16 +13,23 @@ pool:
 
 steps:
 - checkout: self
-- script: |
-    echo Hello, world!
-    echo "##vso[task.setvariable variable=TEST]'hello'"
-  displayName: 'Run a one-line script'
+  path: foo/workspace
 
-- script: |
-    echo $TEST
-  displayName: 'Run a multi-line script'
+- checkout: azure-test
+  path: foo/test
 
-- script: |
-    chmod +x $(System.DefaultWorkingDirectory)/resources/setup.sh
-    $(System.DefaultWorkingDirectory)/resources/setup.sh     
-  displayName: 'Run a multi-line script'
+- script: ls -la
+
+# - script: |
+#     echo Hello, world!
+#     echo "##vso[task.setvariable variable=TEST]'hello'"
+#   displayName: 'Run a one-line script'
+
+# - script: |
+#     echo $TEST
+#   displayName: 'Run a multi-line script'
+
+# - script: |
+#     chmod +x $(System.DefaultWorkingDirectory)/resources/setup.sh
+#     $(System.DefaultWorkingDirectory)/resources/setup.sh     
+#   displayName: 'Run a multi-line script'
