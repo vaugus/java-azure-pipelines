@@ -12,6 +12,9 @@ parameters:
   default: test-with-dashes
   values:
   - test-with-dashes
+- name: doThing
+  default: false 
+  type: boolean
 
 trigger:
 - test
@@ -36,6 +39,11 @@ steps:
 
     echo $ANOTHER_TEST
 
+- script: |
+    echo "I am creepy"
+  condition: and(succeeded(), 
+                 eq('${{ parameters.doThing }}', 'true'),
+                 eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 
 # - script: |
 #     echo $TEST
