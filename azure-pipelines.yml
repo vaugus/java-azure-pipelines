@@ -17,8 +17,8 @@ parameters:
   type: boolean
   
 variables:
-  - name: 'test'
-    value: 'cert.crt'
+- name: 'test'
+  value: 'cert.crt'
 
 trigger:
 - test
