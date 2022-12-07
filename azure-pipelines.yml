@@ -45,6 +45,15 @@ steps:
                  eq('${{ parameters.doThing }}', 'true'),
                  eq(variables['Build.SourceBranch'], 'refs/heads/main'))
 
+- task: DownloadSecureFile@1
+  name: cert
+  displayName: 'Download seila'
+  inputs:
+    secureFile: 'cert.crt'
+
+- script: |
+    cat $(cert.secureFilePath)
+
 # - script: |
 #     echo $TEST
 #   displayName: 'Run a multi-line script'
