@@ -18,7 +18,7 @@ parameters:
   
 variables:
   - name: 'test'
-    value: 'cert-test.crt'
+    value: 'cert.crt'
 
 trigger:
 - test
@@ -52,6 +52,7 @@ steps:
 - task: DownloadSecureFile@1
   name: cert
   displayName: 'Download seila'
+  condition: and(succeeded(), eq('${{ parameters.doThing }}', 'true'))
   inputs:
     secureFile: ${{ variables.test }}
 
