@@ -5,6 +5,14 @@ resources:
      name: java-azure-pipelines
      ref: main
 
+parameters:
+- name: test
+  displayName: Test
+  type: string
+  default: test-with-dashes
+  values:
+  - test-with-dashes
+
 trigger:
 - test
 
@@ -20,10 +28,14 @@ steps:
 
 - script: cd $(Pipeline.Workspace)/foo && ls -la
 
-# - script: |
-#     echo Hello, world!
-#     echo "##vso[task.setvariable variable=TEST]'hello'"
-#   displayName: 'Run a one-line script'
+- script: |
+    echo Hello, world!
+    echo "##vso[task.setvariable variable=TEST]'hello'"
+
+    ANOTHER_TEST=$(echo ${{ parameters.test }} | cut -d "-" -f 3)
+
+    echo $ANOTHER_TEST
+
 
 # - script: |
 #     echo $TEST
