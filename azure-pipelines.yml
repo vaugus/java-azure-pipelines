@@ -44,6 +44,15 @@ steps:
     echo $ANOTHER_TEST
 
 - script: |
-    chmod +x $(Pipeline.Workspace)/foo/workspace/resources/setup.sh
-    $(Pipeline.Workspace)/foo/workspace/resources/setup.sh     
+    chmod +x $(Pipeline.Workspace)/foo/workspace/resources/*.sh
+
+    source $(Pipeline.Workspace)/foo/workspace/resources/common.sh
+
+    $(Pipeline.Workspace)/foo/workspace/resources/setup.sh
+
+    persistent_export "FOO" "foo-value"
+  displayName: 'Run a multi-line script'
+
+- script: |
+    echo $FOO
   displayName: 'Run a multi-line script'
