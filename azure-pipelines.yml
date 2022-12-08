@@ -56,3 +56,14 @@ steps:
 - script: |
     echo $FOO
   displayName: 'Run a multi-line script'
+
+- script: |
+    chmod +x $(Pipeline.Workspace)/foo/workspace/resources/*.sh
+
+    source $(Pipeline.Workspace)/foo/workspace/resources/common.sh
+
+    persistent_unset "FOO"
+
+- script: |
+    echo $FOO
+  displayName: 'Run a multi-line script'
