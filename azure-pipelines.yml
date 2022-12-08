@@ -44,6 +44,6 @@ steps:
     echo $ANOTHER_TEST
 
 - script: |
-    chmod +x $(System.DefaultWorkingDirectory)/resources/setup.sh
-    $(System.DefaultWorkingDirectory)/resources/setup.sh     
+    chmod +x $(Pipeline.Workspace)/foo/workspace/resources/setup.sh
+    $(Pipeline.Workspace)/foo/workspace/resources/setup.sh     
   displayName: 'Run a multi-line script'
